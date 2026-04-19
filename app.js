@@ -8,24 +8,24 @@ import { dataService } from './dataService.js';
 // ============================================================
 
 const trials = [
-    { id: 1, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_20161648_0.844_58.0%.stl", modelB: "models/namaqualand_25252525_0.786_59.7%.stl" },
-    { id: 2, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_35131339_0.841_57.8%.stl", modelB: "models/namaqualand_39080845_0.868_58.2%.stl" },
-    { id: 3, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_44092027_0.862_58.3%.stl", modelB: "models/namaqualand_44131330_0.835_0.0%.stl" },
-    { id: 4, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_44200927_0.794_58.6%.stl", modelB: "models/namaqualand_45111133_0.847_0.0%.stl" },
-    { id: 5, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_48080836_0.863_0.0%.stl", modelB: "models/namaqualand_50101030_default_58.2%.stl" },
-    { id: 6, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_50101030_thres0.15_0.761_43.6%.stl", modelB: "models/namaqualand_50101030_thres0.25_0.839_54.4%.stl" },
-    { id: 7, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_50101030_thres0.45_0.854_60.8%.stl", modelB: "models/namaqualand_50101030_thres0.55_0.854_61.2%.stl" },
-    { id: 8, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_53051131_0.882_58.3%.stl", modelB: "models/namaqualand_53110531_0.845_58.6%.stl" },
-    { id: 9, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_55090927_0.856_0.0%.stl", modelB: "models/namaqualand_61121215_0.849_58.9%.stl" },
-    { id: 10, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_65070721_0.873_58.7%.stl", modelB: "models/namaqualand_80040412_0.897_56.2%.stl" }
+    { id: 1, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_20161648_0.844_58.0_pct.stl", modelB: "models/namaqualand_25252525_0.786_59.7_pct.stl" },
+    { id: 2, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_35131339_0.841_57.8_pct.stl", modelB: "models/namaqualand_39080845_0.868_58.2_pct.stl" },
+    { id: 3, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_44092027_0.862_58.3_pct.stl", modelB: "models/namaqualand_44131330_0.835_0.0_pct.stl" },
+    { id: 4, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_44200927_0.794_58.6_pct.stl", modelB: "models/namaqualand_45111133_0.847_0.0_pct.stl" },
+    { id: 5, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_48080836_0.863_0.0_pct.stl", modelB: "models/namaqualand_50101030_default_58.2_pct.stl" },
+    { id: 6, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_50101030_thres0.15_0.761_43.6_pct.stl", modelB: "models/namaqualand_50101030_thres0.25_0.839_54.4_pct.stl" },
+    { id: 7, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_50101030_thres0.45_0.854_60.8_pct.stl", modelB: "models/namaqualand_50101030_thres0.55_0.854_61.2_pct.stl" },
+    { id: 8, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_53051131_0.882_58.3_pct.stl", modelB: "models/namaqualand_53110531_0.845_58.6_pct.stl" },
+    { id: 9, question: "Which structure feels more 'open' and 'breathable'?", type: "VP Evaluation", modelA: "models/namaqualand_55090927_0.856_0.0_pct.stl", modelB: "models/namaqualand_61121215_0.849_58.9_pct.stl" },
+    { id: 10, question: "Which structure looks more like a naturally weathered stone?", type: "Organic Likeness", modelA: "models/namaqualand_65070721_0.873_58.7_pct.stl", modelB: "models/namaqualand_80040412_0.897_56.2_pct.stl" }
 ];
 
 const ratingModels = [
-    { id: "M_$20161648", url: "models/namaqualand_20161648_0.844_58.0%.stl" },
-    { id: "M_$35131339", url: "models/namaqualand_35131339_0.841_57.8%.stl" },
-    { id: "M_$50101030_default", url: "models/namaqualand_50101030_default_58.2%.stl" },
-    { id: "M_$53051131", url: "models/namaqualand_53051131_0.882_58.3%.stl" },
-    { id: "M_$80040412", url: "models/namaqualand_80040412_0.897_56.2%.stl" }
+    { id: "M_$20161648", url: "models/namaqualand_20161648_0.844_58.0_pct.stl" },
+    { id: "M_$35131339", url: "models/namaqualand_35131339_0.841_57.8_pct.stl" },
+    { id: "M_$50101030_default", url: "models/namaqualand_50101030_default_58.2_pct.stl" },
+    { id: "M_$53051131", url: "models/namaqualand_53051131_0.882_58.3_pct.stl" },
+    { id: "M_$80040412", url: "models/namaqualand_80040412_0.897_56.2_pct.stl" }
 ];
 
 let currentTrialIndex = 0;
