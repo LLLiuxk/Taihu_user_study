@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaihuStone - User Study</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="header-content">
+                <h1>TaihuStone Generative Design Evaluation</h1>
+                <p id="progress-text">Trial 1 / 10</p>
+            </div>
+        </header>
+
+        <!-- 1. Intro / Consent Screen -->
+        <main id="intro-container">
+            <div class="card">
+                <h2>Welcome to the TaihuStone Study</h2>
+                <div class="scroll-content">
+                    <p>We are evaluating a new digital design framework for generating complex porous structures inspired by Taihu scholars' stones.</p>
+                    <p>Your participation involves:
+                        <ul>
+                            <li>Short demographic survey</li>
+                            <li>Visual comparison of 3D models</li>
+                            <li>Rating specific designs</li>
+                        </ul>
+                    </p>
+                    <p><strong>Privacy:</strong> All participation is anonymous. Data used for academic research only.</p>
+                </div>
+                <button class="select-btn" id="btn-start">I Agree and Start</button>
+            </div>
+        </main>
+
+        <!-- 2. Demographics Screen -->
+        <main id="demographics-container" style="display: none;">
+            <div class="card">
+                <h2>Step 1: Participant Information</h2>
+                <div class="form-group">
+                    <label>Occupation / Field</label>
+                    <input type="text" id="input-occupation" placeholder="e.g. Architect, Student, Artist...">
+                </div>
+                <div class="form-group">
+                    <label>Experience with 3D Printing/Modeling</label>
+                    <select id="select-exp">
+                        <option value="none">None</option>
+                        <option value="basic">Basic</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Prior knowledge of Taihu Stones?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="knowledge" value="yes"> Yes</label>
+                        <label><input type="radio" name="knowledge" value="no" checked> No</label>
+                    </div>
+                </div>
+                <button class="select-btn" id="btn-demographics-next">Continue to Study</button>
+            </div>
+        </main>
+
+        <!-- 3. Comparison Content Area (Existing) -->
+        <main id="trial-container" style="display: none;">
+            <!-- Question Prompt -->
+            <div class="prompt-card">
+                <h2 id="question-text">Loading...</h2>
+                <p>Click and drag to rotate. Models sync by default for easier comparison.</p>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <button class="ctrl-btn" id="btn-reset">↻ Reset View</button>
+                <button class="ctrl-btn" id="btn-pause">⏸ Pause Rotation</button>
+                <button class="ctrl-btn" id="btn-sync">🔗 Sync Rotation</button>
+            </div>
+
+            <!-- 3D Viewers -->
+            <div class="models-grid">
+                <div class="model-card" id="card-a">
+                    <div class="viewer-container" id="viewer-a"></div>
+                </div>
+                <div class="model-card" id="card-b">
+                    <div class="viewer-container" id="viewer-b"></div>
+                </div>
+            </div>
+
+            <!-- Choice Panel -->
+            <div class="choice-panel">
+                <div class="btn-wrap-a">
+                    <button class="select-btn" id="btn-a">A 更好</button>
+                </div>
+                <button class="select-btn" id="btn-equal">A和B不相上下</button>
+                <div class="btn-wrap-b">
+                    <button class="select-btn" id="btn-b">B 更好</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- 4. Individual Rating Section (Likert Scale) -->
+        <main id="rating-container" style="display: none;">
+            <div class="card">
+                <h2>Step 3: Detailed Rating</h2>
+                <p>Please rate the following model on a scale of 1 (Strongly Disagree) to 7 (Strongly Agree).</p>
+                <div class="viewer-container-single" id="viewer-single"></div>
+                
+                <div class="likert-group">
+                    <label>1. Transparency: I can see internal layers easily.</label>
+                    <input type="range" min="1" max="7" step="1" value="4" id="range-transparency">
+                    <div class="likert-labels"><span>1</span><span>4</span><span>7</span></div>
+                </div>
+                <div class="likert-group">
+                    <label>2. Naturalness: Captures the essence of weathered stone.</label>
+                    <input type="range" min="1" max="7" step="1" value="4" id="range-naturalness">
+                    <div class="likert-labels"><span>1</span><span>4</span><span>7</span></div>
+                </div>
+                <div class="likert-group">
+                    <label>3. Complexity: Geometric detail is satisfying.</label>
+                    <input type="range" min="1" max="7" step="1" value="4" id="range-complexity">
+                    <div class="likert-labels"><span>1</span><span>4</span><span>7</span></div>
+                </div>
+                <button class="select-btn" id="btn-rating-next">Next Rating</button>
+            </div>
+        </main>
+
+        <!-- 5. Expert / Final Feedback -->
+        <main id="feedback-container" style="display: none;">
+            <div class="card">
+                <h2>Final Thoughts</h2>
+                <div class="form-group">
+                    <label>Utilitarian Value: Could you see yourself using this generative tool?</label>
+                    <textarea id="text-utilitarian" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Any other feedback or future feature requests?</label>
+                    <textarea id="text-feedback" rows="3"></textarea>
+                </div>
+                <button class="select-btn" id="btn-submit-all">Submit Survey</button>
+            </div>
+        </main>
+
+        <!-- 6. Completion Screen -->
+        <main id="completion-container" style="display: none;">
+            <div class="completion-card">
+                <h2>Success!</h2>
+                <p>Thank you for participating in this research. Your responses have been recorded.</p>
+                <div id="submission-status"></div>
+                <textarea id="results-json" rows="5" readonly style="display:none;"></textarea>
+                <br>
+                <button class="select-btn download-btn" id="btn-download">Download Data Backup</button>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js"></script>
+    <!-- STLLoader & OrbitControls as ES module -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="app.js?v=1.1"></script>
+</body>
+</html>
