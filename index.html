@@ -3,165 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaihuStone - User Study</title>
+    <title>Visual Permeability User Study</title>
+    <meta name="description" content="Academic user study evaluating visual permeability of 3D porous structures.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <!-- Header -->
-        <header>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
-            <div class="header-content">
-                <h1>TaihuStone Generative Design Evaluation</h1>
-                <p id="progress-text">Trial 1 / 10</p>
-            </div>
-        </header>
+<div id="app">
 
-        <!-- 1. Intro / Consent Screen -->
-        <main id="intro-container">
-            <div class="card">
-                <h2>Welcome to the TaihuStone Study</h2>
-                <div class="scroll-content">
-                    <p>We are evaluating a new digital design framework for generating complex porous structures inspired by Taihu scholars' stones.</p>
-                    <p>Your participation involves:
-                        <ul>
-                            <li>Short demographic survey</li>
-                            <li>Visual comparison of 3D models</li>
-                            <li>Rating specific designs</li>
-                        </ul>
-                    </p>
-                    <p><strong>Privacy:</strong> All participation is anonymous. Data used for academic research only.</p>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HEADER (persistent, shows progress)         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <header id="site-header">
+        <div class="header-inner">
+            <span class="study-label">Visual Permeability Study</span>
+            <div class="progress-wrap">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
                 </div>
-                <button class="select-btn" id="btn-start">I Agree and Start</button>
+                <span class="progress-label" id="progress-label">Welcome</span>
             </div>
-        </main>
+        </div>
+    </header>
 
-        <!-- 2. Demographics Screen -->
-        <main id="demographics-container" style="display: none;">
-            <div class="card">
-                <h2>Step 1: Participant Information</h2>
-                <div class="form-group">
-                    <label>Occupation / Field</label>
-                    <input type="text" id="input-occupation" placeholder="e.g. Architect, Student, Artist...">
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 1: Welcome                           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="screen-welcome" class="screen active">
+        <div class="card card--wide">
+            <div class="card-badge">Research Study</div>
+            <h1>Visual Permeability Evaluation</h1>
+            <p class="subtitle">A user study on 3D porous structure perception</p>
+
+            <div class="welcome-grid">
+                <div class="welcome-block">
+                    <div class="welcome-icon">🔬</div>
+                    <h3>Study Purpose</h3>
+                    <p>We investigate whether human perception of <em>visual permeability</em> — how easily the line of sight passes through a porous structure — aligns with a computational VP metric.</p>
                 </div>
+                <div class="welcome-block">
+                    <div class="welcome-icon">📋</div>
+                    <h3>What You'll Do</h3>
+                    <ul>
+                        <li><strong>Block 1:</strong> Rank 3 structures by visual openness</li>
+                        <li><strong>Block 2:</strong> Compare pairs with fabrication awareness</li>
+                    </ul>
+                </div>
+                <div class="welcome-block">
+                    <div class="welcome-icon">⏱</div>
+                    <h3>Estimated Time</h3>
+                    <p>Approximately <strong>10–15 minutes</strong>. You may take breaks between questions.</p>
+                </div>
+                <div class="welcome-block">
+                    <div class="welcome-icon">🔒</div>
+                    <h3>Privacy</h3>
+                    <p>All responses are anonymous and used solely for academic research. No personal identifying data is collected.</p>
+                </div>
+            </div>
+
+            <button class="btn btn--primary btn--lg" id="btn-welcome-start">I Agree &amp; Start →</button>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 2: Demographics                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="screen-demographics" class="screen">
+        <div class="card">
+            <div class="card-badge">Step 1 of 5</div>
+            <h2>Participant Information</h2>
+            <p class="card-desc">Please provide some background information. All fields marked * are required.</p>
+
+            <div class="form-section">
                 <div class="form-group">
-                    <label>Experience with 3D Printing/Modeling</label>
-                    <select id="select-exp">
-                        <option value="none">None</option>
-                        <option value="basic">Basic</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="expert">Expert</option>
+                    <label for="input-pid">Participant ID *</label>
+                    <div class="input-with-action">
+                        <input type="text" id="input-pid" placeholder="Enter an ID or use auto-generated">
+                        <button class="btn btn--ghost btn--sm" id="btn-gen-pid">Auto-generate</button>
+                    </div>
+                    <span class="form-hint">You can use your student ID, email alias, or any anonymous code.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="select-age">Age Range</label>
+                    <select id="select-age">
+                        <option value="">— Prefer not to say —</option>
+                        <option value="under18">Under 18</option>
+                        <option value="18-24">18–24</option>
+                        <option value="25-34">25–34</option>
+                        <option value="35-44">35–44</option>
+                        <option value="45-54">45–54</option>
+                        <option value="55+">55 or older</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label>Prior knowledge of Taihu Stones?</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="knowledge" value="yes"> Yes</label>
-                        <label><input type="radio" name="knowledge" value="no" checked> No</label>
+                    <label>Gender</label>
+                    <div class="radio-grid">
+                        <label class="radio-card">
+                            <input type="radio" name="gender" value="male"> Male
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="gender" value="female"> Female
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="gender" value="nonbinary"> Non-binary
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="gender" value="prefer_not"> Prefer not to say
+                        </label>
                     </div>
                 </div>
-                <button class="select-btn" id="btn-demographics-next">Continue to Study</button>
-            </div>
-        </main>
 
-        <!-- 3. Comparison Content Area (Existing) -->
-        <main id="trial-container" style="display: none;">
-            <!-- Question Prompt -->
-            <div class="prompt-card">
-                <h2 id="question-text">Loading...</h2>
-                <p>Click and drag to rotate. Models sync by default for easier comparison.</p>
-            </div>
-
-            <!-- Control Panel -->
-            <div class="control-panel">
-                <button class="ctrl-btn" id="btn-reset">↻ Reset View</button>
-                <button class="ctrl-btn" id="btn-pause">⏸ Pause Rotation</button>
-                <button class="ctrl-btn" id="btn-sync">🔗 Sync Rotation</button>
-            </div>
-
-            <!-- 3D Viewers -->
-            <div class="models-grid">
-                <div class="model-card" id="card-a">
-                    <div class="viewer-container" id="viewer-a"></div>
-                </div>
-                <div class="model-card" id="card-b">
-                    <div class="viewer-container" id="viewer-b"></div>
-                </div>
-            </div>
-
-            <!-- Choice Panel -->
-            <div class="choice-panel">
-                <div class="btn-wrap-a">
-                    <button class="select-btn" id="btn-a">A 更好</button>
-                </div>
-                <button class="select-btn" id="btn-equal">A和B不相上下</button>
-                <div class="btn-wrap-b">
-                    <button class="select-btn" id="btn-b">B 更好</button>
-                </div>
-            </div>
-        </main>
-
-        <!-- 4. Individual Rating Section (Likert Scale) -->
-        <main id="rating-container" style="display: none;">
-            <div class="card">
-                <h2>Step 3: Detailed Rating</h2>
-                <p>Please rate the following model on a scale of 1 (Strongly Disagree) to 7 (Strongly Agree).</p>
-                <div class="viewer-container-single" id="viewer-single"></div>
-                
-                <div class="likert-group">
-                    <label>1. Transparency: I can see internal layers easily.</label>
-                    <input type="range" min="1" max="7" step="1" value="4" id="range-transparency">
-                    <div class="likert-labels"><span>1</span><span>4</span><span>7</span></div>
-                </div>
-                <div class="likert-group">
-                    <label>2. Naturalness: Captures the essence of weathered stone.</label>
-                    <input type="range" min="1" max="7" step="1" value="4" id="range-naturalness">
-                    <div class="likert-labels"><span>1</span><span>4</span><span>7</span></div>
-                </div>
-                <div class="likert-group">
-                    <label>3. Complexity: Geometric detail is satisfying.</label>
-                    <input type="range" min="1" max="7" step="1" value="4" id="range-complexity">
-                    <div class="likert-labels"><span>1</span><span>4</span><span>7</span></div>
-                </div>
-                <button class="select-btn" id="btn-rating-next">Next Rating</button>
-            </div>
-        </main>
-
-        <!-- 5. Expert / Final Feedback -->
-        <main id="feedback-container" style="display: none;">
-            <div class="card">
-                <h2>Final Thoughts</h2>
                 <div class="form-group">
-                    <label>Utilitarian Value: Could you see yourself using this generative tool?</label>
-                    <textarea id="text-utilitarian" rows="3"></textarea>
+                    <label for="select-exp">Experience in 3D Modeling / CAD / Computer Graphics / Design</label>
+                    <select id="select-exp">
+                        <option value="none">None — I have no experience</option>
+                        <option value="basic">Basic — I've used basic tools occasionally</option>
+                        <option value="intermediate">Intermediate — I use these regularly</option>
+                        <option value="expert">Expert — Professional or research-level expertise</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label>Any other feedback or future feature requests?</label>
-                    <textarea id="text-feedback" rows="3"></textarea>
+            </div>
+
+            <button class="btn btn--primary" id="btn-demo-next">Continue →</button>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 3: Block 1 Instructions              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="screen-block1-intro" class="screen">
+        <div class="card">
+            <div class="card-badge block1-badge">Block 1 of 2</div>
+            <h2>VP Validation — Ranking Task</h2>
+
+            <div class="instruction-box">
+                <div class="instruction-icon">👁</div>
+                <div>
+                    <h3>Your Task</h3>
+                    <p>In this part, please focus <strong>only on the perceived visual permeability</strong> of each porous structure — i.e., how easily the line of sight seems able to pass through the internal void space.</p>
+                    <p style="margin-top:0.8rem;"><strong>Do not consider</strong> manufacturability, overhangs, unsupported regions, or how much later modification may be needed.</p>
                 </div>
-                <button class="select-btn" id="btn-submit-all">Submit Survey</button>
             </div>
-        </main>
 
-        <!-- 6. Completion Screen -->
-        <main id="completion-container" style="display: none;">
-            <div class="completion-card">
-                <h2>Success!</h2>
-                <p>Thank you for participating in this research. Your responses have been recorded.</p>
-                <div id="submission-status"></div>
-                <textarea id="results-json" rows="5" readonly style="display:none;"></textarea>
-                <br>
-                <button class="select-btn download-btn" id="btn-download">Download Data Backup</button>
+            <div class="how-to-box">
+                <h4>How to Respond</h4>
+                <ol>
+                    <li>You will see <strong>three structures</strong> side by side as interactive 3D models.</li>
+                    <li><strong>Drag</strong> each structure card into the ranking slots at the bottom, from <em>Most Visually Permeable</em> to <em>Least Visually Permeable</em>.</li>
+                    <li>Alternatively, use the <strong>rank buttons</strong> (1st / 2nd / 3rd) below each card.</li>
+                    <li>Use the <strong>Control Panel</strong> to reset, pause, or sync the view across models.</li>
+                </ol>
             </div>
-        </main>
 
-    </div>
+            <button class="btn btn--primary block1-btn" id="btn-block1-start">Start Block 1 →</button>
+        </div>
+    </main>
 
-    <!-- Three.js from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js"></script>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 4: Ranking Task (Block 1)            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="screen-ranking" class="screen">
+        <div class="task-header">
+            <div class="task-meta" id="ranking-meta">Block 1 · Task 1 / 3</div>
+            <h2 id="ranking-question">Please rank the following three structures from most visually permeable to least visually permeable.</h2>
+            <p class="task-hint">Drag cards to the rank slots below, or use the rank buttons.</p>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <button class="ctrl-btn" data-action="reset">↻ Reset View</button>
+            <button class="ctrl-btn" data-action="pause">⏸ Pause Rotation</button>
+            <button class="ctrl-btn" data-action="sync">🔗 Sync Rotation</button>
+        </div>
+
+        <!-- Candidate cards (drag sources) -->
+        <div class="candidates-row" id="candidates-row">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Rank slots (drag targets) -->
+        <div class="rank-slots-area">
+            <div class="rank-slot" id="slot-1" data-rank="1">
+                <div class="rank-label"><span class="rank-num">1st</span><span class="rank-desc">Most Permeable</span></div>
+                <div class="rank-drop-zone" id="drop-1"></div>
+            </div>
+            <div class="rank-slot" id="slot-2" data-rank="2">
+                <div class="rank-label"><span class="rank-num">2nd</span></div>
+                <div class="rank-drop-zone" id="drop-2"></div>
+            </div>
+            <div class="rank-slot" id="slot-3" data-rank="3">
+                <div class="rank-label"><span class="rank-num">3rd</span><span class="rank-desc">Least Permeable</span></div>
+                <div class="rank-drop-zone" id="drop-3"></div>
+            </div>
+        </div>
+
+        <div class="task-footer">
+            <div class="validation-msg" id="ranking-validation">Please assign all three positions to continue.</div>
+            <button class="btn btn--primary" id="btn-ranking-submit" disabled>Submit &amp; Next →</button>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 5: Block 2 Instructions              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="screen-block2-intro" class="screen">
+        <div class="card">
+            <div class="card-badge block2-badge">Block 2 of 2</div>
+            <h2>Fabrication-Aware Preference</h2>
+
+            <div class="instruction-box block2-instruction">
+                <div class="instruction-icon">⚙️</div>
+                <div>
+                    <h3>Your Task</h3>
+                    <p>In this part, please consider <strong>not only visual openness</strong>, but also whether the structure appears easier to refine into a support-free fabrication result with <strong>minimal additional modification</strong>.</p>
+                    <p style="margin-top:0.8rem;">In particular, consider whether the structure seems to contain excessive unsupported overhang-like regions or fragile local solid connections.</p>
+                </div>
+            </div>
+
+            <div class="how-to-box">
+                <h4>How to Respond</h4>
+                <ol>
+                    <li>You will see <strong>two structures</strong> side by side as interactive 3D models.</li>
+                    <li>Answer <strong>two separate questions</strong> for each pair.</li>
+                    <li>You <em>may</em> give the same answer to both questions, or different answers — both are valid.</li>
+                    <li>You can sync or reset the view using the <strong>Control Panel</strong>.</li>
+                </ol>
+            </div>
+
+            <button class="btn btn--primary block2-btn" id="btn-block2-start">Start Block 2 →</button>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 6: Pairwise Dual-Question (Block 2)  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="screen-pairwise" class="screen">
+        <div class="task-header">
+            <div class="task-meta" id="pairwise-meta">Block 2 · Task 1 / 3</div>
+            <h2>Compare the two structures and answer both questions below.</h2>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <button class="ctrl-btn" data-action="reset">↻ Reset View</button>
+            <button class="ctrl-btn" data-action="pause">⏸ Pause Rotation</button>
+            <button class="ctrl-btn" data-action="sync">🔗 Sync Rotation</button>
+        </div>
+
+        <!-- Two structure cards -->
+        <div class="pair-row" id="pair-row">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Dual questions -->
+        <div class="dual-questions">
+            <div class="question-row" id="q1-row">
+                <div class="question-text">
+                    <span class="question-num">Q1</span>
+                    Which structure appears <strong>more visually permeable</strong>?
+                </div>
+                <div class="answer-btns">
+                    <button class="answer-btn" id="q1-btn-a" data-q="1" data-choice="A">Structure A</button>
+                    <button class="answer-btn" id="q1-btn-b" data-q="1" data-choice="B">Structure B</button>
+                </div>
+            </div>
+
+            <div class="question-row" id="q2-row">
+                <div class="question-text">
+                    <span class="question-num">Q2</span>
+                    Which structure would you <strong>prefer as a fabrication-aware design</strong> if minimizing later support-free adjustment is important?
+                </div>
+                <div class="answer-btns">
+                    <button class="answer-btn" id="q2-btn-a" data-q="2" data-choice="A">Structure A</button>
+                    <button class="answer-btn" id="q2-btn-b" data-q="2" data-choice="B">Structure B</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="task-footer">
+            <div class="validation-msg" id="pairwise-validation">Please answer both questions to continue.</div>
+            <button class="btn btn--primary" id="btn-pairwise-submit" disabled>Submit &amp; Next →</button>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 7: Completion                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="screen-completion" class="screen">
+        <div class="card card--wide completion-card">
+            <div class="completion-emoji">🎉</div>
+            <h2>Thank You!</h2>
+            <p class="subtitle">Your responses have been recorded successfully.</p>
+            <p class="completion-msg">This study is investigating whether computational Visual Permeability (VP) metrics align with human perception of openness in 3D porous structures — and how fabrication constraints influence design preference.</p>
+
+            <div class="download-section">
+                <h3>Download Your Data</h3>
+                <p>Please download and send the data file to the researcher, or it may have been submitted automatically.</p>
+                <div class="download-btns">
+                    <button class="btn btn--primary" id="btn-download-json">⬇ Download JSON</button>
+                    <button class="btn btn--secondary" id="btn-download-csv">⬇ Download CSV</button>
+                </div>
+            </div>
+
+            <div id="submission-status" class="submission-status"></div>
+        </div>
+    </main>
+
+</div><!-- /#app -->
+
     <!-- STLLoader & OrbitControls as ES module -->
     <script type="importmap">
     {
@@ -171,6 +322,6 @@
         }
     }
     </script>
-    <script type="module" src="app.js?v=1.1"></script>
+    <script type="module" src="app.js?v=2.1"></script>
 </body>
 </html>
