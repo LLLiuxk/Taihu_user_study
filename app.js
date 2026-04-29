@@ -28,45 +28,130 @@ const BLOCK1_TASKS_RAW = [
     {
         id: 'B1_G1',
         structures: [
-            { id: 'thres015', vpValue: 0.761, stl: 'models/namaqualand_50101030_thres0.15_0.761_43.6_pct.stl' },
-            { id: 'thres025', vpValue: 0.839, stl: 'models/namaqualand_50101030_thres0.25_0.839_54.4_pct.stl' },
-            { id: 'thres045', vpValue: 0.854, stl: 'models/namaqualand_50101030_thres0.45_0.854_60.8_pct.stl' }
+            { id: 'as075113_69', vpValue: 0.0, stl: 'models/as075113_69.stl' },
+            { id: 'as085113_69_', vpValue: 0.0, stl: 'models/as085113_69_.stl' },
+            { id: 'as095113_69', vpValue: 0.0, stl: 'models/as095113_69.stl' },
         ]
     },
     {
         id: 'B1_G2',
         structures: [
-            { id: 'thres025b', vpValue: 0.839, stl: 'models/namaqualand_50101030_thres0.25_0.839_54.4_pct.stl' },
-            { id: 'thres045b', vpValue: 0.854, stl: 'models/namaqualand_50101030_thres0.45_0.854_60.8_pct.stl' },
-            { id: 'thres055', vpValue: 0.854, stl: 'models/namaqualand_50101030_thres0.55_0.854_61.2_pct.stl' }
+            { id: 'boulder_095113_64', vpValue: 0.0, stl: 'models/boulder_095113_64.stl' },
+            { id: 'boulder__075113_64', vpValue: 0.0, stl: 'models/boulder__075113_64.stl' },
+            { id: 'boulder__085113_64', vpValue: 0.0, stl: 'models/boulder__085113_64.stl' },
         ]
     },
     {
         id: 'B1_G3',
         structures: [
-            { id: 'model_44131330', vpValue: 0.835, stl: 'models/namaqualand_44131330_0.835_0.0_pct.stl' },
-            { id: 'model_50101030', vpValue: 0.862, stl: 'models/namaqualand_50101030_default_58.2_pct.stl' },
-            { id: 'model_53051131', vpValue: 0.882, stl: 'models/namaqualand_53051131_0.882_58.3_pct.stl' }
+            { id: 'namaqualand_50101030adj15', vpValue: 0.0, stl: 'models/namaqualand_50101030adj15.stl' },
+            { id: 'namaqualand_5501134s', vpValue: 0.0, stl: 'models/namaqualand_5501134s.stl' },
+            { id: 'namaqualand_7015150s', vpValue: 0.0, stl: 'models/namaqualand_7015150s.stl' },
         ]
-    }
+    },
+    {
+        id: 'B1_G4',
+        structures: [
+            { id: 'namaqualand_0001s', vpValue: 0.0, stl: 'models/namaqualand_0001s.stl' },
+            { id: 'namaqualand_50101030adj25', vpValue: 0.0, stl: 'models/namaqualand_50101030adj25.stl' },
+            { id: 'namaqualand_50101030adj35', vpValue: 0.0, stl: 'models/namaqualand_50101030adj35.stl' },
+        ]
+    },
+    {
+        id: 'B1_G5',
+        structures: [
+            { id: 'namaqualand_0001s', vpValue: 0.0, stl: 'models/namaqualand_0001s.stl' },
+            { id: 'namaqualand_0100s', vpValue: 0.0, stl: 'models/namaqualand_0100s.stl' },
+            { id: 'namaqualand_0202060s', vpValue: 0.0, stl: 'models/namaqualand_0202060s.stl' },
+        ]
+    },
+    {
+        id: 'B1_G6',
+        structures: [
+            { id: 'namaqualand_0010s', vpValue: 0.0, stl: 'models/namaqualand_0010s.stl' },
+            { id: 'namaqualand_50101030adj55', vpValue: 0.0, stl: 'models/namaqualand_50101030adj55.stl' },
+            { id: 'namaqualand_7015150s', vpValue: 0.0, stl: 'models/namaqualand_7015150s.stl' },
+        ]
+    },
+    {
+        id: 'B1_G7',
+        structures: [
+            { id: 'namaqualand_0010s', vpValue: 0.0, stl: 'models/namaqualand_0010s.stl' },
+            { id: 'namaqualand_50101030adj25', vpValue: 0.0, stl: 'models/namaqualand_50101030adj25.stl' },
+            { id: 'namaqualand_50101030adj55', vpValue: 0.0, stl: 'models/namaqualand_50101030adj55.stl' },
+        ]
+    },
+    {
+        id: 'B1_G8',
+        structures: [
+            { id: 'namaqualand_0010s', vpValue: 0.0, stl: 'models/namaqualand_0010s.stl' },
+            { id: 'namaqualand_25252525s', vpValue: 0.0, stl: 'models/namaqualand_25252525s.stl' },
+            { id: 'namaqualand_5511034s', vpValue: 0.0, stl: 'models/namaqualand_5511034s.stl' },
+        ]
+    },
 ];
 
 const BLOCK2_TASKS_RAW = [
     {
         id: 'B2_P1',
-        structureA: { id: 'thres015_fab', vpValue: 0.761, stl: 'models/namaqualand_50101030_thres0.15_0.761_43.6_pct.stl' },
-        structureB: { id: 'thres055_fab', vpValue: 0.854, stl: 'models/namaqualand_50101030_thres0.55_0.854_61.2_pct.stl' }
+        structureA: { id: 'as075113_69', vpValue: 0.0, stl: 'models/as075113_69.stl' },
+        structureB: { id: 'as085113_69_', vpValue: 0.0, stl: 'models/as085113_69_.stl' }
     },
     {
         id: 'B2_P2',
-        structureA: { id: 'model_44131330_fab', vpValue: 0.835, stl: 'models/namaqualand_44131330_0.835_0.0_pct.stl' },
-        structureB: { id: 'model_44092027_fab', vpValue: 0.862, stl: 'models/namaqualand_44092027_0.862_58.3_pct.stl' }
+        structureA: { id: 'as075113_69', vpValue: 0.0, stl: 'models/as075113_69.stl' },
+        structureB: { id: 'as095113_69', vpValue: 0.0, stl: 'models/as095113_69.stl' }
     },
     {
         id: 'B2_P3',
-        structureA: { id: 'model_45111133_fab', vpValue: 0.847, stl: 'models/namaqualand_45111133_0.847_0.0_pct.stl' },
-        structureB: { id: 'model_44200927_fab', vpValue: 0.794, stl: 'models/namaqualand_44200927_0.794_58.6_pct.stl' }
-    }
+        structureA: { id: 'as085113_69_', vpValue: 0.0, stl: 'models/as085113_69_.stl' },
+        structureB: { id: 'as095113_69', vpValue: 0.0, stl: 'models/as095113_69.stl' }
+    },
+    {
+        id: 'B2_P4',
+        structureA: { id: 'boulder_095113_64', vpValue: 0.0, stl: 'models/boulder_095113_64.stl' },
+        structureB: { id: 'boulder__075113_64', vpValue: 0.0, stl: 'models/boulder__075113_64.stl' }
+    },
+    {
+        id: 'B2_P5',
+        structureA: { id: 'boulder_095113_64', vpValue: 0.0, stl: 'models/boulder_095113_64.stl' },
+        structureB: { id: 'boulder__085113_64', vpValue: 0.0, stl: 'models/boulder__085113_64.stl' }
+    },
+    {
+        id: 'B2_P6',
+        structureA: { id: 'boulder__075113_64', vpValue: 0.0, stl: 'models/boulder__075113_64.stl' },
+        structureB: { id: 'boulder__085113_64', vpValue: 0.0, stl: 'models/boulder__085113_64.stl' }
+    },
+    {
+        id: 'B2_P7',
+        structureA: { id: 'namaqualand_50101030adj45', vpValue: 0.0, stl: 'models/namaqualand_50101030adj45.stl' },
+        structureB: { id: 'namaqualand_50101030adj55', vpValue: 0.0, stl: 'models/namaqualand_50101030adj55.stl' }
+    },
+    {
+        id: 'B2_P8',
+        structureA: { id: 'namaqualand_0010s', vpValue: 0.0, stl: 'models/namaqualand_0010s.stl' },
+        structureB: { id: 'namaqualand_0202060s', vpValue: 0.0, stl: 'models/namaqualand_0202060s.stl' }
+    },
+    {
+        id: 'B2_P9',
+        structureA: { id: 'namaqualand_0001s', vpValue: 0.0, stl: 'models/namaqualand_0001s.stl' },
+        structureB: { id: 'namaqualand_1000s', vpValue: 0.0, stl: 'models/namaqualand_1000s.stl' }
+    },
+    {
+        id: 'B2_P10',
+        structureA: { id: 'namaqualand_0100s', vpValue: 0.0, stl: 'models/namaqualand_0100s.stl' },
+        structureB: { id: 'namaqualand_7015150s', vpValue: 0.0, stl: 'models/namaqualand_7015150s.stl' }
+    },
+    {
+        id: 'B2_P11',
+        structureA: { id: 'namaqualand_0100s', vpValue: 0.0, stl: 'models/namaqualand_0100s.stl' },
+        structureB: { id: 'namaqualand_50101030adj45', vpValue: 0.0, stl: 'models/namaqualand_50101030adj45.stl' }
+    },
+    {
+        id: 'B2_P12',
+        structureA: { id: 'namaqualand_0100s', vpValue: 0.0, stl: 'models/namaqualand_0100s.stl' },
+        structureB: { id: 'namaqualand_50101030adj15', vpValue: 0.0, stl: 'models/namaqualand_50101030adj15.stl' }
+    },
 ];
 
 // ── Application State ─────────────────────────────────────────
